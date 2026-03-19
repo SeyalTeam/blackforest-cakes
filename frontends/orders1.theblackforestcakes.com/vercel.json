@@ -1,0 +1,9 @@
+{
+  "routes": [
+    { "src": "/v1/admin/v1/(.*)", "dest": "https://api2.theblackforestcakes.com/v1/admin/v1/$1" },
+    { "src": "/v1/orders/(.*)", "dest": "https://pub-ebbea0aed91b471c928aeb4a33cd83d7.r2.dev/blackforest/blackforest-api/orders/$1" },
+    { "src": "/v1/([^/]+)", "dest": "https://pub-ebbea0aed91b471c928aeb4a33cd83d7.r2.dev/blackforest/blackforest-api/general/$1" },
+    { "handle": "filesystem" },
+    { "src": "/.*", "dest": "/index.html" }
+  ]
+}
