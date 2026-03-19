@@ -1,0 +1,7 @@
+export S3_ENDPOINT='https://<accountid>.r2.cloudflarestorage.com'
+export S3_ACCESS_KEY_ID='<your-access-key>'
+export S3_SECRET_ACCESS_KEY='<your-secret-key>'
+export S3_BUCKET='vseyal'
+export S3_REGION='auto'
+export NEXT_PUBLIC_S3_PUBLIC_URL='https://<public-subdomain>.r2.dev'
+export S3_PUBLIC_URL='https://<public-subdomain>.r2.dev'

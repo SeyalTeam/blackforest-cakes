@@ -1,0 +1,12 @@
+package-lock.json
+node_modules/
+uploads/
+documents
+env/r2_env.sh
+logs/
+reports/
+uploads.zip
+.DS_Store
+
+# Local database dumps
+dump/test/

@@ -1,0 +1,44 @@
+{
+  "name": "blackforest-api",
+  "version": "1.0.0",
+  "description": "covers admin and front end api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://Srishtie@bitbucket.org/Srishtie/blackforest-api.git"
+  },
+  "keywords": [
+    "blackforest",
+    "express",
+    "rest",
+    "admin"
+  ],
+  "author": "harish",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/Srishtie/blackforest-api#readme",
+  "dependencies": {
+    "async": "^3.2.0",
+    "aws-sdk": "^2.553.0",
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cron": "^1.8.2",
+    "excel4node": "^1.7.2",
+    "express": "^4.17.1",
+    "express-validator": "^6.2.0",
+    "firebase-admin": "^8.12.1",
+    "fs-extra": "^8.1.0",
+    "helmet": "^3.21.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.26.0",
+    "mongoose": "^5.7.5",
+    "multer": "^1.4.2",
+    "pusher": "^3.0.0",
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0",
+    "twilio": "^3.50.0"
+  }
+}
