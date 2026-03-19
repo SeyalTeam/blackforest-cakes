@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.509acd1b.chunk.css",
+    "main.js": "/static/js/main.c87df5a4.chunk.js",
+    "main.js.map": "/static/js/main.c87df5a4.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/css/2.c692ceaf.chunk.css": "/static/css/2.c692ceaf.chunk.css",
+    "static/js/2.bfae851a.chunk.js": "/static/js/2.bfae851a.chunk.js",
+    "static/js/2.bfae851a.chunk.js.map": "/static/js/2.bfae851a.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.201f40d0f6017733e2359058f87ac1e2.js": "/precache-manifest.201f40d0f6017733e2359058f87ac1e2.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.c692ceaf.chunk.css.map": "/static/css/2.c692ceaf.chunk.css.map",
+    "static/css/main.509acd1b.chunk.css.map": "/static/css/main.509acd1b.chunk.css.map",
+    "static/media/404.png": "/static/media/404.e6e68260.png",
+    "static/media/Black-Forest-Logo.png": "/static/media/Black-Forest-Logo.6f044df6.png",
+    "static/media/pe-icon-7-stroke.css": "/static/media/Pe-icon-7-stroke.c45f7de0.svg",
+    "static/media/adminbg.jpg": "/static/media/adminbg.55a5c516.jpg",
+    "static/media/empty.gif": "/static/media/empty.737ec0dd.gif",
+    "static/media/bootstrap.min.css": "/static/media/glyphicons-halflings-regular.fa277232.woff",
+    "static/media/list.gif": "/static/media/list.884e2fe0.gif",
+    "static/media/sidebar-3.jpg": "/static/media/sidebar-3.34535b95.jpg"
+  }
+}
