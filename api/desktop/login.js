@@ -1,4 +1,4 @@
-var bcrypt = require("bcrypt");
+var bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
 var messages = require("../../utils/messages");
 var { validationResult } = require("express-validator");

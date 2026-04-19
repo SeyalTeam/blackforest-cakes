@@ -4,6 +4,7 @@ var Mongoose = require("mongoose");
 var messages = require("../utils/messages");
 var xl = require("excel4node");
 var helpers = require("../utils/helpers");
+var runtimePaths = require("../utils/runtime-paths");
 
 var branchOrderCalls = {
   printBranchOrders: (req, res) => {
@@ -1221,7 +1222,7 @@ var branchOrderCalls = {
             cellStart = cellStart + 1;
           });
 
-          wb.write("documents/BranchOrderReport.xlsx", function (err, stats) {
+          wb.write(runtimePaths.getDocumentFilePath("BranchOrderReport.xlsx"), function (err, stats) {
             if (err) {
               res.status(400).json({
                 message: err.message,
@@ -1229,6 +1230,7 @@ var branchOrderCalls = {
             } else {
               res.json({
                 filename: "BranchOrderReport.xlsx",
+                url: runtimePaths.getDocumentPublicPath("BranchOrderReport.xlsx")
               });
             }
           });

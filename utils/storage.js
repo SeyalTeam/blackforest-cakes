@@ -94,7 +94,11 @@ function mirrorMulterRequestToR2(req, prefix) {
 }
 
 function buildPublicUrl(key) {
-  var base = trimTrailingSlash(process.env.S3_PUBLIC_URL);
+  var base = trimTrailingSlash(
+    process.env.S3_PUBLIC_URL ||
+    process.env.NEXT_PUBLIC_S3_PUBLIC_URL ||
+    'https://pub-ebbea0aed91b471c928aeb4a33cd83d7.r2.dev'
+  );
   if (!base) return '';
   return base + '/' + key;
 }

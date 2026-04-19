@@ -13,7 +13,7 @@ var configurations = {
   cloudMessageKey: process.env.CLOUD_MESSAGE_KEY || "",
   webPushPublicKey: process.env.WEB_PUSH_PUBLIC_KEY || "",
   webPushPrivateKey: process.env.WEB_PUSH_PRIVATE_KEY || "",
-  socketURL: "http://localhost:3003",
+  socketURL: process.env.SOCKET_URL || "",
   twiloSid: process.env.TWILIO_SID || "",
   twiloAuthToken: process.env.TWILIO_AUTH_TOKEN || "",
   ApiUrlHost: process.env.API_URL_HOST || "http://localhost:3001",

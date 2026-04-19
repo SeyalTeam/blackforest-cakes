@@ -1,6 +1,6 @@
 // packages
 var { validationResult } = require("express-validator");
-var bcrypt = require("bcrypt");
+var bcrypt = require("bcryptjs");
 var Mongoose = require("mongoose");
 const fs = require("fs-extra");
 var pushNotify = require("../utils/notification");

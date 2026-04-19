@@ -14,6 +14,7 @@ var product = require("./product");
 var constants = require("../config/constants");
 var utils = require("../utils/helpers");
 var storageHelper = require("../utils/storage");
+var runtimePaths = require("../utils/runtime-paths");
 var order = require("./Orders");
 var userCollect = require("./users");
 var branchOrders = require("./branchOrders");
@@ -38,7 +39,7 @@ var fileFilters = function (req, file, cb) {
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/orders");
+    cb(null, runtimePaths.getMulterDestination("uploads/orders"));
   },
   filename: function (req, file, cb) {
     cb(null, "order-doc-" + Date.now() + ".jpg");

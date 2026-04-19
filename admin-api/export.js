@@ -3,6 +3,7 @@ var Order = require('../models/OrderModel');
 var PastryOrder = require('../models/PastriesModel');
 var messages = require('../utils/messages');
 var Mongoose = require('mongoose');
+var runtimePaths = require('../utils/runtime-paths');
 
 var exportCalls = {
     downloadExcel: (req, res, next) => {
@@ -157,14 +158,15 @@ var exportCalls = {
                         cellStart = cellStart + 1;
                     });
 
-                     wb.write('documents/Report.xlsx', function(err, stats) {
+                     wb.write(runtimePaths.getDocumentFilePath('Report.xlsx'), function(err, stats) {
                         if (err) {
                             res.status(400).json({
                                 message: err.message
                             });
                         } else {
                             res.json({
-                                filename: 'Report.xlsx'
+                                filename: 'Report.xlsx',
+                                url: runtimePaths.getDocumentPublicPath('Report.xlsx')
                             });
                         }
                     });
@@ -325,14 +327,15 @@ var exportCalls = {
                       cellStart = cellStart + 1;
                   });
 
-                   wb.write('documents/Report.xlsx', function(err, stats) {
+                   wb.write(runtimePaths.getDocumentFilePath('Report.xlsx'), function(err, stats) {
                       if (err) {
                           res.status(400).json({
                               message: err.message
                           });
                       } else {
                           res.json({
-                              filename: 'Report.xlsx'
+                              filename: 'Report.xlsx',
+                              url: runtimePaths.getDocumentPublicPath('Report.xlsx')
                           });
                       }
                   });

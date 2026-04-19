@@ -27,6 +27,7 @@ var utils = require("../utils/helpers");
 var constants = require("../config/constants");
 var helpers = require("../utils/helpers");
 var storageHelper = require("../utils/storage");
+var runtimePaths = require("../utils/runtime-paths");
 
 var fileFilters = function (req, file, cb) {
   // supported image file mimetypes
@@ -44,7 +45,7 @@ var fileFilters = function (req, file, cb) {
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads");
+    cb(null, runtimePaths.getMulterDestination("uploads"));
   },
   filename: function (req, file, cb) {
     cb(

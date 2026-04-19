@@ -1,20 +1,25 @@
 var Mongoose = require('mongoose');
 var config = require('./config');
 
-Mongoose.connect(config.dbString, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true
-});
+var globalKey = '__blackforestMongoosePromise';
 
-var db = Mongoose.connection;
-
-db.on("error", () => {
-  console.log("> error occurred from the database");
-});
-
-db.once("open", () => {
-  console.log("> successfully opened the database");
-});
+if (config.dbString) {
+  if (!global[globalKey]) {
+    global[globalKey] = Mongoose.connect(config.dbString, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useCreateIndex: true
+    }).then(function() {
+      console.log('> successfully opened the database');
+      return Mongoose;
+    }).catch(function(err) {
+      console.log('> error occurred from the database');
+      console.log(err);
+      throw err;
+    });
+  }
+} else {
+  console.log('> DB_STRING is not configured');
+}
 
 module.exports = Mongoose;

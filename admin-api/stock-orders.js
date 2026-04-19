@@ -4,6 +4,7 @@ var Mongoose = require("mongoose");
 var messages = require("../utils/messages");
 var xl = require("excel4node");
 var helpers = require("../utils/helpers");
+var runtimePaths = require("../utils/runtime-paths");
 
 var stockOrdersCall = {
   printStockOrders: (req, res) => {
@@ -692,7 +693,7 @@ var stockOrdersCall = {
             cellStart = cellStart + 1;
           });
 
-          wb.write("documents/BranchOrderReport.xlsx", function (err, stats) {
+          wb.write(runtimePaths.getDocumentFilePath("BranchOrderReport.xlsx"), function (err, stats) {
             if (err) {
               res.status(400).json({
                 message: err.message,
@@ -700,6 +701,7 @@ var stockOrdersCall = {
             } else {
               res.json({
                 filename: "BranchOrderReport.xlsx",
+                url: runtimePaths.getDocumentPublicPath("BranchOrderReport.xlsx")
               });
             }
           });

@@ -7,8 +7,8 @@ var Employee = require("../models/EmployeeModel");
 const { response } = require("express");
 var async = require("async");
 var config = require("../config/config");
-var io = require("socket.io-client");
-var socket = io.connect(config.socketURL, { reconnect: true });
+var createSocket = require("../utils/socket");
+var socket = createSocket();
 
 var branchOrderCalls = {
   removeOneItem: (req, res) => {

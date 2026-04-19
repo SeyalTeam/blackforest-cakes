@@ -1,8 +1,8 @@
 var Employee = require('../models/EmployeeModel');
 var messages = require('../utils/messages');
 var config = require('../config/config');
-var io = require('socket.io-client');
-var socket = io.connect(config.socketURL, {reconnect: true});
+var createSocket = require('../utils/socket');
+var socket = createSocket();
 
 var userCalls = {
     getAllEmployees: (req, res, next) => {

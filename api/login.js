@@ -1,10 +1,10 @@
 // packages
-var bcrypt = require("bcrypt");
+var bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
 var { validationResult } = require("express-validator");
 var config = require("../config/config");
-var io = require("socket.io-client");
-var socket = io.connect(config.socketURL, { reconnect: true });
+var createSocket = require("../utils/socket");
+var socket = createSocket();
 
 var Employee = require("../models/EmployeeModel");
 var messages = require("../utils/messages");
