@@ -10,3 +10,4 @@ uploads.zip
 
 # Local database dumps
 dump/test/
+*.apk

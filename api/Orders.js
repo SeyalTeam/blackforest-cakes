@@ -15,8 +15,9 @@ var createSocket = require("../utils/socket");
 var socket = createSocket();
 var accountSid = config.twiloSid; // Your Account SID from www.twilio.com/console
 var authToken = config.twiloAuthToken; // Your Auth Token from www.twilio.com/console
-const twiloClient = require("twilio")(accountSid, authToken);
+const twiloClient = (accountSid && authToken) ? require("twilio")(accountSid, authToken) : null;
 var timeLine = require("../models/OrderTimeLineModel");
+var payloadSync = require("../utils/payload-sync");
 
 var orderCalls = {
   createOrder: (req, res, next) => {
@@ -49,6 +50,9 @@ var orderCalls = {
             message: messages.saveMsg("Order"),
             order: result._id,
           });
+
+          // Dual-write to blackforest-payload (non-blocking)
+          payloadSync.syncNewOrder(result, bodyData);
         }
       });
     } catch (exp) {
@@ -877,6 +881,9 @@ var orderCalls = {
             res.status(200).json({
               message: messages.updateMsg("Order status"),
             });
+
+            // Sync status to blackforest-payload (non-blocking)
+            payloadSync.syncOrderStatus(pId, bodyData.status);
           }
         }
       );
@@ -921,6 +928,9 @@ var orderCalls = {
                   res.status(200).json({
                     message: messages.updateMsg("Balance updated!"),
                   });
+
+                  // Sync balance to blackforest-payload (non-blocking)
+                  payloadSync.syncOrderBalance(pId, amount - balCal, balCal);
                 }
               }
             );
@@ -1332,6 +1342,8 @@ var orderCalls = {
               });
             } else {
               console.log("File Uploaded");
+              // Sync document/photo to blackforest-payload (non-blocking)
+              payloadSync.syncOrderDocument(orderId, files.filename);
             }
             // updated
             // twiloClient.messages

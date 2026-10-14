@@ -6,6 +6,7 @@ var messages = require("../utils/messages");
 var notify = require("../models/NotificationModel");
 var pushNotify = require("../utils/notification");
 var timeLine = require("../models/OrderTimeLineModel");
+var payloadSync = require("../utils/payload-sync");
 
 var orderCalls = {
   getAllOrders: (req, res, next) => {
@@ -803,6 +804,9 @@ var orderCalls = {
             res.status(200).json({
               message: messages.updateMsg("Order status"),
             });
+
+            // Sync status to blackforest-payload (non-blocking)
+            payloadSync.syncOrderStatus(pId, bodyData.status);
           }
         }
       );
@@ -945,6 +949,9 @@ var orderCalls = {
                   res.status(200).json({
                     message: messages.updateMsg("Balance updated!"),
                   });
+
+                  // Sync balance to blackforest-payload (non-blocking)
+                  payloadSync.syncOrderBalance(pId, amount - balCal, balCal);
                 }
               }
             );

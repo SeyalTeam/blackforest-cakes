@@ -1,7 +1,7 @@
 var configurations = {
-  dbString: process.env.DB_STRING || "",
+  dbString: process.env.DB_STRING || "mongodb://127.0.0.1:27017/blackforestlocal",
   // dbString: process.env.DB_STRING_SECONDARY || "",
-  apiPort: 3000,
+  apiPort: parseInt(process.env.API_PORT || process.env.PORT || 3000, 10),
   adminPort: 3001,
   cronPort: 3002,
   socketPort: 3003,
@@ -17,6 +17,7 @@ var configurations = {
   twiloSid: process.env.TWILIO_SID || "",
   twiloAuthToken: process.env.TWILIO_AUTH_TOKEN || "",
   ApiUrlHost: process.env.API_URL_HOST || "http://localhost:3001",
+  payloadApiUrl: process.env.PAYLOAD_API_URL || process.env.PAYLOAD_PUBLIC_SERVER_URL || "http://127.0.0.1:4000",
 };
 
 module.exports = configurations;
